@@ -13,12 +13,19 @@ public class Reactive {
         return Flux.just("Hello","HI","wassup");
     }
 
+    private Flux<String> tesflux1(){
+        List<String> langs=List.of("Java","Python","C++","JavaScript");
+        return Flux.fromIterable(langs);
+    }
+
     public static void main(String [] args){
 
         Reactive react = new Reactive();
         react.testMono()
                 .subscribe(data -> System.out.println(data));
         react.testflux()
+                .subscribe(data -> System.out.println(data));
+        react.tesflux1()
                 .subscribe(data -> System.out.println(data));
 
 }
